@@ -27,5 +27,6 @@ for i in range(len(data)):
         print(data[i], end='\n')
 
 # Bucle para mostrar la lista sin los elementos repetidos
+# NOTA: Se aplica otra forma de mostrar la lista sin utilizar estructuras repetitivas.
 print('Lista de datos sin elementos repetidos:')
 print(*unique_data, sep=', ')
