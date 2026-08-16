@@ -67,7 +67,8 @@ while True:
             print('Lista final actualizada:')
             for i in range(len(student_list)):
                 print(f'Estudiante {i + 1}: {student_list[i]}')
+            print()
 
-        case '4':
+        case '4': # Salir del programa
             print('Saliendo del programa.')
             break
