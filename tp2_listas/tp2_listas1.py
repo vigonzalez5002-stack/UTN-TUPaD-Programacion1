@@ -17,7 +17,7 @@ for index, grade in enumerate(student_grades):
 # NOTA: Otra forma de hacerlo es utilizando un bucle para sumar cada elemento de la lista
 # para luego dividirlo por la cantidad de elementos que tiene la lista.
 average = sum(student_grades) / len(student_grades)
-print(f'\nEl promedio general es {average}')
+print(f'\nEl promedio general es {average:.2f}')
 
 # ----------------------------------------------------------------------------------------
 # Búsqueda de la nota más alta y la nota más baja entre todas las notas.
