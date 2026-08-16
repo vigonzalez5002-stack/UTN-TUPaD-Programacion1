@@ -18,6 +18,6 @@ while True:
 # Búsqueda del nombre del estudiante en la lista
 if name in students:
     student_index = students.index(name)
-    print(f'{name} se encuentra en la posición {student_index} de la lista.')
+    print(f'{name} se encuentra en la posición {student_index + 1} de la lista.')
 else:
     print(f'{name} no se encuentra en la lista.')
