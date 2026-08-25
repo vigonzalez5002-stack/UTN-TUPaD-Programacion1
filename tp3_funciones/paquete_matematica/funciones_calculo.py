@@ -1,4 +1,7 @@
 from math import pi # Para las funciones de la actividad 4
+# -----------------------------------------------------------------
+# Este archivo contiene funciones que calculan o convierten números.
+# -----------------------------------------------------------------
 
 # Actividad 4.1 (Cálculo de area del un círculo)
 def calcular_area_circulo(radio):

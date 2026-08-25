@@ -1,4 +1,7 @@
 import paquete_extras.funciones_booleanas as fb
+# -------------------------------------------------------------
+# Este archivo contiene funciones que son bucles de validación.
+# -------------------------------------------------------------
 
 def bucle_ingresar_palabra(prompt = '', text_valid = []):
     '''

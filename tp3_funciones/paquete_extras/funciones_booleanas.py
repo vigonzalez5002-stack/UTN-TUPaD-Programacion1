@@ -1,3 +1,7 @@
+# ----------------------------------------------------------------------
+# Este archivo contiene funciones que sirven para condiciones booleanas.
+# ----------------------------------------------------------------------
+
 def es_positivo(number_txt, integer = False):
     '''
     Función que recibe un string y retorna un booleano.
@@ -5,7 +9,7 @@ def es_positivo(number_txt, integer = False):
     
     True si el string es un número positivo, False si no lo es.
     '''
-    
+
     if not integer:
         number_list = number_txt.split('.')
     else:

@@ -1,4 +1,7 @@
 from paquete_matematica.funciones_calculo import operaciones_basicas
+# ---------------------------------------------------------------------
+# Este archivo contiene funciones que imprimen mensajes en la terminal.
+# ---------------------------------------------------------------------
 
 # Actividad 1
 def imprimir_hola_mundo():
