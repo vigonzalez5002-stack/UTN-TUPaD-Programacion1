@@ -2,10 +2,13 @@ import paquete_texto.funciones_texto as ftext
 import paquete_matematica.funciones_calculo as fmath
 import paquete_extras.funciones_bucle as floop
 
-# -----------------------------------------------------------------------------
-# Acerca del paquete extras: Creé un paquete extra de funciones con el objetivo
-# de aplicar validaciones a los ingresos del usuario.
-# -----------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+# Este archivo es el programa principal donde se ejecutarán todas las resoluciones
+#  de los ejercicios.
+# 
+# Acerca del paquete extras: Creé un paquete extra de funciones con el objetivo de 
+# aplicar validaciones a los ingresos del usuario.
+# --------------------------------------------------------------------------------
 
 while True:
     print(f'''
@@ -24,7 +27,7 @@ while True:
 -----------------------------------------------''')
     option = int(floop.bucle_ingresar_numero('Opción: ', 1, 11, min = True, max = True, integer = True))
     print()
-    
+
     match option:
         case 1: # Actividad 1
             ftext.imprimir_hola_mundo()
