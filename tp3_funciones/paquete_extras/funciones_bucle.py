@@ -35,12 +35,12 @@ def bucle_ingresar_numero(prompt = '', inf = None, sup = None, min = False, max 
     
     Si deseas incluir alguno de los los extremos en el intervalo
     cambia alguno de los parámetros min o max a True. Si quieres que el número sea
-    exclusivamente un número entero, cambia el parámetro integer a True.
+    estrictamente un número entero, cambia el parámetro integer a True.
 
     Esta función retorna el número que ingresa el usuario en formato string.
     '''
-    
-    # Cambiar el mensaje de error dependiendo de si se debe ingresar un número real o entero.
+
+    # Cambia el mensaje de error dependiendo de si se debe ingresar un número real o entero.
     not_number_error = 'Error: Solo se admiten números.' 
     if integer == True:
         not_number_error = 'Error: Solo se admiten números enteros.'
@@ -55,5 +55,5 @@ def bucle_ingresar_numero(prompt = '', inf = None, sup = None, min = False, max 
             return number
 
 if __name__ == '__main__':
-    bucle_ingresar_palabra('Texto: ', ['Test'])
+    bucle_ingresar_palabra('Texto: ', ['Test1', 'Test2'])
     bucle_ingresar_numero(prompt='Número: ', inf=3, sup=20, min=True, max=True)
