@@ -10,7 +10,7 @@ def es_positivo(number_txt, integer = False):
     True si el string es un número positivo, False si no lo es.
     '''
 
-    if not integer:
+    if not integer: # Para separar la parte entera de la decimal
         number_list = number_txt.split('.')
     else:
         number_list = [number_txt]
@@ -33,8 +33,8 @@ def es_negativo(number_txt, integer):
 
 def en_intervalo(number, inf = None, sup = None, min = False, max = False):
     '''
-    Recibe un número, un ínfimo y un supremo y retorna un booleano.
-    Los parámetros inf, sup son los extremos abiertos del rango(Intervalo abierto). Por defecto, ambos son None.
+    Retorna un booleano en función de si el número ingresado está o no en un intervalo.
+    Los parámetros inf, sup son los extremos del intervalo abierto. Por defecto, ambos son None.
     
     Si deseas incluir alguno de los los extremos en el intervalo, cambia alguno de los parámetros min o max a True.
     

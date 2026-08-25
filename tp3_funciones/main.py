@@ -4,7 +4,7 @@ import paquete_extras.funciones_bucle as floop
 
 # --------------------------------------------------------------------------------
 # Este archivo es el programa principal donde se ejecutarán todas las resoluciones
-#  de los ejercicios.
+# de los ejercicios.
 # 
 # Acerca del paquete extras: Creé un paquete extra de funciones con el objetivo de 
 # aplicar validaciones a los ingresos del usuario.

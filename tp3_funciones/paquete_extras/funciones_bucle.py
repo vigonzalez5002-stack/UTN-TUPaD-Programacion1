@@ -33,7 +33,7 @@ def bucle_ingresar_numero(prompt = '', inf = None, sup = None, min = False, max 
     El parámetro prompt es la indicación de lo que debe ingresar el usuario 
     al igual que la función input.
     
-    Los parámetros inf, sup son los extremos abiertos del intervalo abierto. 
+    Los parámetros inf, sup son los extremos del intervalo abierto. 
     Por defecto, ambos son None.
     
     Si deseas incluir alguno de los los extremos en el intervalo
