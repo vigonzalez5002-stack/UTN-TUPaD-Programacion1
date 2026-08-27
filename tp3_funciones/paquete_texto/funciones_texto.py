@@ -54,3 +54,7 @@ def mostrar_operaciones(number1, number2):
         if i == 3:
             result_string = f'{result[i]:.2f}'
         print(f'{number1} {operation[i]} {number2} = {result_string}')
+
+if __name__ == '__main__':
+    tabla_multiplicar(5)
+    mostrar_operaciones(3, 1)

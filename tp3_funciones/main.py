@@ -25,7 +25,7 @@ while True:
 10. Para mostrar el promedio de tres números.
 11. Para finalizar el programa.
 -----------------------------------------------''')
-    option = int(floop.bucle_ingresar_numero('Opción: ', 1, 11, min = True, max = True, integer = True))
+    option = int(floop.bucle_ingresar_numero('Opción: ', 1, 11, is_min = True, is_max = True, integer = True))
     print()
 
     match option:
@@ -39,18 +39,18 @@ while True:
         case 3: # Actividad 3
             name = floop.bucle_ingresar_palabra('Ingresa tu nombre: ')
             surname = floop.bucle_ingresar_palabra('Ingresa tu apellido: ')
-            age = floop.bucle_ingresar_numero('Ingresa tu edad: ', 0, min = True, integer = True)
+            age = floop.bucle_ingresar_numero('Ingresa tu edad: ', 0, is_min = True, integer = True)
             residence = floop.bucle_ingresar_palabra('Ingresa tu residencia: ')
             ftext.informacion_personal(name, surname, age, residence)
 
         case 4: # Actividad 4
-            radio = float(floop.bucle_ingresar_numero('Ingrese el radio de la circunferencia: ', 0, min = True))
+            radio = float(floop.bucle_ingresar_numero('Ingrese el radio de la circunferencia: ', 0, is_min = True))
             area = float(fmath.calcular_area_circulo(radio))
             perimeter = fmath.calcular_perimetro_circulo(radio)
             print(f'El círculo de radio {radio} tiene un área de {area:.2f} unidades cuadradas y un perímetro de {perimeter:.2f} unidades.')
             
         case 5: # Actividad 5
-            seconds = float(floop.bucle_ingresar_numero('Ingresa los segundos a convertir: ', 0, min = True))
+            seconds = float(floop.bucle_ingresar_numero('Ingresa los segundos a convertir: ', 0, is_min = True))
             hour = fmath.segundos_a_horas(seconds)
             print(f'{seconds} segundos equivale a {hour:.2f} horas.')
             

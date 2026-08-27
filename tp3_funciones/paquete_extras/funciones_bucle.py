@@ -1,4 +1,6 @@
 import paquete_extras.funciones_booleanas as fb
+from math import inf as infinite # Para uso de intervalos de extremos infinitos
+
 # -------------------------------------------------------------
 # Este archivo contiene funciones que son bucles de validación.
 # -------------------------------------------------------------
@@ -25,7 +27,7 @@ def bucle_ingresar_palabra(prompt = '', text_valid = []):
         else:
             return text
 
-def bucle_ingresar_numero(prompt = '', inf = None, sup = None, min = False, max = False, integer = False):
+def bucle_ingresar_numero(prompt = '', inf = -infinite, sup = infinite, is_min = False, is_max = False, integer = False):
     '''
     Función que mantiene un bucle hasta que el string a ingresar sea un número real 
     dentro de un intervalo.
@@ -34,29 +36,28 @@ def bucle_ingresar_numero(prompt = '', inf = None, sup = None, min = False, max 
     al igual que la función input.
     
     Los parámetros inf, sup son los extremos del intervalo abierto. 
-    Por defecto, ambos son None.
+    Por defecto, ambos son infinitos.Si deseas incluir alguno de los 
+    extremos en el intervalo cambia alguno de los parámetros min o max a True. 
     
-    Si deseas incluir alguno de los los extremos en el intervalo
-    cambia alguno de los parámetros min o max a True. Si quieres que el número sea
-    estrictamente un número entero, cambia el parámetro integer a True.
+    Si quieres que el número sea estrictamente un número entero, cambia el parámetro integer a True.
 
     Esta función retorna el número que ingresa el usuario en formato string.
     '''
 
     # Cambia el mensaje de error dependiendo de si se debe ingresar un número real o entero.
-    not_number_error = 'Error: Solo se admiten números.' 
-    if integer == True:
-        not_number_error = 'Error: Solo se admiten números enteros.'
+    not_number_error = 'Error por carácter inválido: Solo se admiten números.' 
+    if integer:
+        not_number_error = 'Error por carácter inválido: Solo se admiten números enteros.'
 
     while True:
         number = input(prompt).strip()
-        if not fb.es_positivo(number, integer) and not fb.es_negativo(number, integer): # Si no es un número
+        if not (fb.es_positivo(number, integer) or fb.es_negativo(number, integer)): # Si no es un número
             print(not_number_error)
-        elif not fb.en_intervalo(float(number), inf, sup, min, max): # Si no se encuentra en un intervalo
+        elif not fb.en_intervalo(float(number), inf, sup, is_min, is_max): # Si no se encuentra en un intervalo
             print('Error: Número fuera de rango.')
-        else:
+        else: # Si pasa las validaciones
             return number
 
 if __name__ == '__main__':
-    bucle_ingresar_palabra('Texto: ', ['Test1', 'Test2'])
-    bucle_ingresar_numero(prompt='Número: ', inf=3, sup=20, min=True, max=True)
+    bucle_ingresar_palabra('Texto: ', ['TestA', 'TestB'])
+    bucle_ingresar_numero(prompt='Número: ', inf=3, sup=20, is_max=True)
