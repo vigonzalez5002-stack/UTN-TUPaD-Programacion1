@@ -5,7 +5,7 @@ dentro del registro.
 '''
 
 # Se hará uso de un paquete para la validación de datos y así evitar repetir código
-from paquete_validaciones.funciones_validaciones import ingresar_numero, ingresar_texto
+from paquete_validaciones.funciones_validaciones import ingresar_telefono, ingresar_texto
 
 # ---------------------------------------------------------------------------------
 # El siguiente código almacenta a un diciconario 5 números de contacto.
@@ -17,7 +17,7 @@ contact_dictionary = {}
 for i in range(1, 6):
     print(f'\nIngrese el contacto Nº{i}')
     name = ingresar_texto('Ingresa el nombre del contacto: ', list(contact_dictionary.keys()), not_text_valid = True)
-    phone_number = ingresar_numero()
+    phone_number = ingresar_telefono()
     contact_dictionary[name] = phone_number 
 print()
 

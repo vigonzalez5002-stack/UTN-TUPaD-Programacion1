@@ -3,6 +3,8 @@
 # de datos ingresados por el usuario.
 # ---------------------------------------------------------
 
+import paquete_validaciones.funciones_booleanas as fbool
+
 def ingresar_texto(prompt = '', text_valid = [], not_text_valid = False):
     '''
     Esta función es un bucle de validación que controla el ingreso
@@ -14,9 +16,10 @@ def ingresar_texto(prompt = '', text_valid = [], not_text_valid = False):
 
     El parámetro text_valid permite establecer una lista de textos válidos.
 
-    El parámetro not_text_valid invertir la lógica del parámetro text_valid,
+    El parámetro not_text_valid invierte la lógica del parámetro text_valid,
     permitiendo admitir como válido el ingreso de textos que no se encuentran
-    en la lista.
+    en la lista, mientras que un texto que se encuentre en la lista se toma
+    como texto inválido.
     '''
 
     while True:
@@ -41,11 +44,26 @@ def ingresar_texto(prompt = '', text_valid = [], not_text_valid = False):
         else:
             return text
 
-def ingresar_numero():
+def ingresar_nota():
+    '''
+    Esta función es un bucle de validación que controla el ingreso de una nota.
+    Este bucle se terminará y retornará la nota como punto flotante.
+    '''
+
+    while True:
+        grade = input('Ingresa la nota: ').strip()
+        if not fbool.es_positivo(grade):
+            print('Error: La nota debe ser un número positivo o cero.')
+        elif not (0 <= float(grade) <= 10):
+            print('Error: Nota fuera de rango. Debe ser un número del 0 al 10.')
+        else:
+            return float(grade)
+
+def ingresar_telefono():
     '''
     Esta función es un bucle de validación que controla el ingreso de un
     número de teléfono. Este bucle se terminará y retornará el número de
-    teléfono si se ingresa un número de entero válido.
+    teléfono como entero si se ingresa un número de entero válido.
     '''
 
     while True:
