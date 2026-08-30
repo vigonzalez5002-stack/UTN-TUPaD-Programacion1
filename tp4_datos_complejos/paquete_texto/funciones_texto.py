@@ -26,3 +26,4 @@ def imprimir_secuencia(sequence, prompt=''):
             print(sequence[i], end = ', ')
         else:
             print(sequence[i])
+    print()

@@ -24,7 +24,7 @@ def ingresar_texto(prompt = '', text_valid = [], not_text_valid = False):
 
         if not text.isalpha(): # Si el texto tiene carácteres inválido
             print('Error: Solo se admiten letras.')
-            
+
         elif text_valid != []: #Si el text_valid no es vacío 
             # Cambio de condición por el parámetro not_text_valid
             text_valid_condition = text not in text_valid
@@ -40,7 +40,6 @@ def ingresar_texto(prompt = '', text_valid = [], not_text_valid = False):
             
         else:
             return text
-            
 
 def ingresar_numero():
     '''
