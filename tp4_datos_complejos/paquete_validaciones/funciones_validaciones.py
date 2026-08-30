@@ -3,6 +3,7 @@
 # de datos ingresados por el usuario.
 # ---------------------------------------------------------
 
+from math import inf as infinite
 import paquete_validaciones.funciones_booleanas as fbool
 
 def ingresar_texto(prompt = '', text_valid = [], not_text_valid = False):
@@ -44,20 +45,36 @@ def ingresar_texto(prompt = '', text_valid = [], not_text_valid = False):
         else:
             return text
 
-def ingresar_nota():
+def ingresar_numero(prompt = '', inf = -infinite, sup = infinite, is_min = False, is_max = False, integer = False):
     '''
-    Esta función es un bucle de validación que controla el ingreso de una nota.
-    Este bucle se terminará y retornará la nota como punto flotante.
+    Función que mantiene un bucle hasta que el string a ingresar sea un número real 
+    dentro de un intervalo.
+    
+    El parámetro prompt es la indicación de lo que debe ingresar el usuario 
+    al igual que la función input.
+    
+    Los parámetros inf, sup son los extremos del intervalo abierto. 
+    Por defecto, ambos son infinitos.Si deseas incluir alguno de los 
+    extremos en el intervalo cambia alguno de los parámetros min o max a True. 
+    
+    Si quieres que el número sea estrictamente un número entero, cambia el parámetro integer a True.
+
+    Esta función retorna el número que ingresa el usuario en formato string.
     '''
 
+    # Cambia el mensaje de error dependiendo de si se debe ingresar un número real o entero.
+    not_number_error = 'Error por carácter inválido: Solo se admiten números.' 
+    if integer:
+        not_number_error = 'Error por carácter inválido: Solo se admiten números enteros.'
+
     while True:
-        grade = input('Ingresa la nota: ').strip()
-        if not fbool.es_positivo(grade):
-            print('Error: La nota debe ser un número positivo o cero.')
-        elif not (0 <= float(grade) <= 10):
-            print('Error: Nota fuera de rango. Debe ser un número del 0 al 10.')
-        else:
-            return float(grade)
+        number = input(prompt).strip()
+        if not (fbool.es_positivo(number, integer) or fbool.es_negativo(number, integer)): # Si no es un número
+            print(not_number_error)
+        elif not fbool.en_intervalo(float(number), inf, sup, is_min, is_max): # Si no se encuentra en un intervalo
+            print(f'Error: Número fuera de rango. El rango de números es de {inf} a {sup}')
+        else: # Si pasa las validaciones
+            return number
 
 def ingresar_telefono():
     '''

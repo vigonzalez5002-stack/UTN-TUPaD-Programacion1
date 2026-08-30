@@ -4,18 +4,20 @@ Programa que permite registrar las notas de 3 alumnos en tuplas y calcula el pro
 '''
 
 # Se utiliza un paquete de funciones para optimizar el código.
-from paquete_validaciones.funciones_validaciones import ingresar_texto, ingresar_nota
+from paquete_validaciones.funciones_validaciones import ingresar_texto, ingresar_numero
 from paquete_texto.funciones_texto import imprimir_secuencia
 
-# --------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------
 # Esto registra las notas de 3 alumnos y lo añade al diccionario de estudiantes.
 # El par clave-valor corresponde al nombre del estudiante y sus 3 notas respectivamente.
-# --------------------------------------------------------------------------------------
+# Para evitar que se modifiquen las notas durante el ingreso de datos, se usará la función
+# ingresar_texto del paquete de validaciones.
+# ----------------------------------------------------------------------------------------
 
 # Diccionario de estudiantes
 student_dictionary = {}
 
-# Este código almacena el par nombre-notas de 3 estudiantes en el diccionario.
+# Este código almacena el par nombre-notas de 3 estudiantes en el diccionario
 for i in range(1, 4):
 
     # Validación del nombre del estudiante
@@ -26,7 +28,7 @@ for i in range(1, 4):
     list_grade = [] # Lista temporal para almacenar notas 
     for i in range(1, 4):
         print(f'Nota Nº{i} de {name}:')
-        grade = ingresar_nota() # Validación de la nota del estudiante
+        grade = float(ingresar_numero(f'Ingresa la nota {i}: ', 0, 10, True, True)) # Validación de la nota del estudiante
         list_grade.append(grade)
 
     # Esto añade al diccionario
