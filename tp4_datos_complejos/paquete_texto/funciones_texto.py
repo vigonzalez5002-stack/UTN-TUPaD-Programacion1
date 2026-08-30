@@ -1,3 +1,7 @@
+# --------------------------------------------------------------------
+# Este archivo contiene funciones que imprimen mensajes en la terminal
+# --------------------------------------------------------------------
+
 def imprimir_diccionario(dictionary, prompt = 'Diccionario:'):
     '''
     Imprime los pares clave valor de un diccionario con formato.
