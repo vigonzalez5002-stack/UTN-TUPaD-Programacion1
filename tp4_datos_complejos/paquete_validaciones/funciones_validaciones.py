@@ -89,3 +89,28 @@ def ingresar_telefono():
             return int(phone_number)
         else:
             print('Error: Número de teléfono inválido, ingrese un número válido que no exceda los 15 dígitos.')
+
+def ingresar_hora():
+    '''
+    Esta función es un bucle de validación que controla el ingreso de una hora.
+    Este bucle se terminará y retornará la hora como string si se ingresa una
+    hora con formato válido.
+    '''
+
+    while True:
+        hour = input('Ingrese una hora: ').strip()
+        hour_list = hour.split(':')
+
+        hour_condition = False
+        minute_condition = False
+        if len(hour_list) == 2:
+            hour_condition = len(hour_list[0]) == 2 and hour_list[0].isdigit() and int(hour_list[0]) in range(0, 24)
+            minute_condition = len(hour_list[1]) == 2 and hour_list[1].isdigit() and int(hour_list[1]) in range(0, 60)
+        
+        if  not hour_condition or  not minute_condition:
+            print('Error: Valor ingresado no válido. Debe ingresarse una hora en formato de tiempo HH:MM con una hora máxima de 23:59')
+        else:
+            return hour
+
+if __name__ == '__main__':
+    print(ingresar_hora())
