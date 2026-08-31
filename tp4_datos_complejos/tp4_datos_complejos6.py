@@ -38,6 +38,7 @@ for i in range(1, 4):
 # Este código imprime en la terminal las notas del estudiante y su prompedio.
 # ---------------------------------------------------------------------------
 
+print()
 for name in student_dictionary.keys():
 
     # Esto imprime el promedio del estudiante
