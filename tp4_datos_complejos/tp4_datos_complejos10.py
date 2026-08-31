@@ -17,9 +17,8 @@ original_dictionary = {
 # y los imprime en la terminal.
 # --------------------------------------------------------------------------
 
-reverse_dictionary = {}
-
 # Esto construye el nuevo diccionario con los pares invertidos
+reverse_dictionary = {}
 for key, value in original_dictionary.items():
     reverse_dictionary[value] = key
 
