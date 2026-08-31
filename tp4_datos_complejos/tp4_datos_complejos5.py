@@ -5,6 +5,7 @@ que se repite cada palabra.
 '''
 # Se importarán paquetes para ahorrar código
 from paquete_texto.funciones_texto import imprimir_secuencia, imprimir_diccionario
+from paquete_validaciones.funciones_validaciones import ingresar_frase
 
 # -----------------------------------------------------------------------------------------
 # Este código pide al usuario una frase y separa la frase en un conjunto de palabras.
@@ -12,14 +13,13 @@ from paquete_texto.funciones_texto import imprimir_secuencia, imprimir_diccionar
 # -----------------------------------------------------------------------------------------
 
 # Esto le pide la frase al usuario y la separa en un conjunto de palabras
-phrase = input('Ingrese una frase sin comas ni puntos: ').lower().strip()
+phrase = ingresar_frase()
 word_set = set(phrase.split(' '))
 
 # Esto hace un conteo de apariciones de cada palabra de la frase y la almacena en un diccionario
 word_dictionary = {}
 for word in word_set:
-    word_count = phrase.count(word)
-    word_dictionary[word] = word_count
+    word_dictionary[word] = phrase.count(word)
 
 # -----------------------------------------------------------------------------------
 # Este código imprime en la terminal las palabras únicas y la cantidad de apariciones

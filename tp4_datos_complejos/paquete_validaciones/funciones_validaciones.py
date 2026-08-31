@@ -45,6 +45,24 @@ def ingresar_texto(prompt = '', text_valid = [], not_text_valid = False):
         else:
             return text
 
+def ingresar_frase():
+    '''
+    Esta función es un bucle de validación que controla el ingreso de frases.
+    El bucle terminará y retornará la frase si el mismo no contiene comas, 
+    puntos ni números.
+    '''
+
+    while True:
+        phrase = input('Ingresa una frase sin comas, puntos ni números: ').title().strip()
+        word_list = phrase.split()
+
+        for word in word_list:
+            if not word.isalpha():
+                print('Error: Una de las palabras de la frase tiene un carácter inválido.')
+                break
+        else:
+            return phrase
+
 def ingresar_numero(prompt = '', inf = -infinite, sup = infinite, is_min = False, is_max = False, integer = False):
     '''
     Función que mantiene un bucle hasta que el string a ingresar sea un número real 
