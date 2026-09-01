@@ -1,6 +1,6 @@
 '''
 Actividad 2
-Corrección del código del ejercicio 1
+Corrección de errores del código del ejercicio 1
 '''
 
 a = 10
