@@ -3,6 +3,8 @@
 # del trabajo.
 # ----------------------------------------------------------------------------------
 
+from paquete_utilidades.funciones_utiles import load_products
+
 ARCHIVE = 'products.txt'
 
 # Actividad 2
@@ -11,9 +13,8 @@ def show_archive(input_file):
     Esta función lee y muestra el archivo de texto plano ingresado con un formato.
     '''
     try:
-        with open(input_file, 'r') as file:
-            file_lines = file.readlines()
-            
+        product_list = load_products(input_file)
+        
 
     except FileNotFoundError:
         print('Error: El archivo no existe.')
