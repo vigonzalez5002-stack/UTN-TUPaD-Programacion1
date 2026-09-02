@@ -2,6 +2,7 @@
 # Este módulo contiene todas las funciones que corresponden a la resolución
 # de las actividades.
 # -------------------------------------------------------------------------
+from paquete_validaciones.funciones_validaciones import enter_number, enter_word
 
 FILE = r'tp6_archivos\products.txt'
 
@@ -46,7 +47,16 @@ def load_products():
         # Esto crea el archivo
         with open(FILE, 'w') as file:
             file.write('nombre,precio,cantidad\n')
-            file.writelines()
+
+            # Esto añade 3 productos al archivo.
+            products_added = [] # Lista para evitar que ingrese el mismo producto.
+            for i in range(3):
+                print(f'\nIngresando el producto Nº{i}')
+                name = enter_word('Ingresa el nombre del producto: ', products_added, True, '[X] Error: El producto ya fue añadido.')
+                price = enter_number('Ingrese el precio del producto: ', 0, is_min = True)
+                amount = enter_number('Ingrese el stock: ', 0, is_min = True, integer = True)
+                file.write(f'{name},{price},{amount}\n')
+                products_added.append(name)
 
     except Exception as unexpected_exception:
         print('[X] Ocurrió un error inesperado.')
