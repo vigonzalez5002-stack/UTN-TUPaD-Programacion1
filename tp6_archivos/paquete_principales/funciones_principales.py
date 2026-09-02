@@ -14,8 +14,7 @@ def show_archive(input_file):
     '''
     try:
         product_list = load_products(input_file)
-        for product in product_list:
-            pass
+        
 
     except FileNotFoundError:
         print('Error: El archivo no existe.')
