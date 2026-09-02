@@ -58,6 +58,9 @@ def load_products():
                 file.write(f'{name},{price},{amount}\n')
                 products_added.append(name)
 
+        print('[✓] Archivo creado exitosamente.')
+        print('> Puede cargar los productos a la memoria ahora.')
+
     except Exception as unexpected_exception:
         print('[X] Ocurrió un error inesperado.')
         print(f'> Error {type(unexpected_exception).__name__}: {unexpected_exception}')
@@ -68,3 +71,12 @@ def load_products():
 
     finally:
         print('>> Volviendo al menú de opciones.')
+
+def show_products(product_list):
+    '''
+    Esta función imprime en la terminal los productos cargados 
+    en una lista de diccionarios.
+    '''
+
+    for product in product_list:
+        pass
