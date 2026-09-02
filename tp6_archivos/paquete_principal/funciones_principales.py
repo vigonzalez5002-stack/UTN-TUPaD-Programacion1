@@ -10,7 +10,7 @@ def load_products():
     Esta función carga los productos del archivo products.txt a una lista de
     diccionarios y retornará dicha lista.
 
-    Si no existe el archivo, lo crea con 3 productos.
+    Si no existe el archivo, lo crea con 3 productos dados por el usuario.
     '''
 
     print('==========================================')
@@ -41,6 +41,12 @@ def load_products():
 
     except FileNotFoundError:
         print('[X] Error: No se encontró el archivo.')
+        print('> Creando el archivo...')
+
+        # Esto crea el archivo
+        with open(FILE, 'w') as file:
+            file.write('nombre,precio,cantidad\n')
+            file.writelines()
 
     except Exception as unexpected_exception:
         print('[X] Ocurrió un error inesperado.')

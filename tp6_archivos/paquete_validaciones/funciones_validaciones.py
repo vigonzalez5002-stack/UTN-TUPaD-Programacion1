@@ -1,6 +1,7 @@
 # -------------------------------------------------------------------------------
 # Este módulo contiene funciones de validación de valores de ingreso del usuario.
 # -------------------------------------------------------------------------------
+from math import inf as infinite
 
 def enter_word(prompt = '', valid_words = [], invert_condition = False, invalid_prompt = ''):
     '''
@@ -37,3 +38,44 @@ def enter_word(prompt = '', valid_words = [], invert_condition = False, invalid_
 
         else:
             return word
+
+def enter_number(prompt = '', inf = -infinite, sup = infinite, is_min = False, is_max = False, integer = False):
+    '''
+    Esta función es un bucle de validación de números que ingrese el usuario. Se romperá dicho bucle si
+    el usuario ingresa un número válido, retornando dicho número. Por defecto, una condición obligatoria
+    es que el número sea real/punto blotante, pero puede cambiarse a número entero si se cambia el parámetro
+    integer a True.
+
+    Los parámetros inf y sup son extremos de un intervalo de números válidos. Por defecto ambos son infinitos.
+    Ambos parámetros no están incluidos en los intervalos, para incluirlos cambiar los parámetros is_min o
+    is_max a True respectivamente.
+    '''
+
+    while True:
+        try:
+            number = float(input(prompt).strip())
+            # Esto convierte el número a entero
+            if integer:
+                number = int(number)
+
+            # Condiciones del intervalo válido
+            inf_condition = inf < number
+            sup_condition = number < sup
+            if is_min:
+                inf_condition = inf <= number
+            if is_max:
+                sup_condition = number <= sup
+
+            # Esto valida si el número está o no en el intervalo válido
+            if not (inf_condition and sup_condition):
+                print('[X] Error: Número fuera de rango.')
+
+        except ValueError:
+            print('[X] Error: Se debe ingresar un número.')
+
+        except Exception as unexpected_exception:
+            print('[X] Ocurrió un error inesperado.')
+            print(f'> Error {type(unexpected_exception).__name__}: {unexpected_exception}')
+
+        else:
+            return number
