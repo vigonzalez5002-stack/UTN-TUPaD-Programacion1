@@ -133,7 +133,7 @@ def find_product(products_list : list):
     print('\n=======================')
     print('Buscando un producto...')
     try:
-        name = enter_word('Ingresa el nombre del producto a buscar: ')
+        name = enter_word('\nIngresa el nombre del producto a buscar: ')
 
         if name not in load_product_names(products_list):
             print('[X] Error: El producto no se encuentra añadido.')
