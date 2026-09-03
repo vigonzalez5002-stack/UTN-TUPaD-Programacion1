@@ -3,7 +3,7 @@
 # de las actividades.
 # -------------------------------------------------------------------------
 from paquete_validaciones.funciones_validaciones import enter_number, enter_word
-from paquete_utiles.funciones_utiles import show_data
+from paquete_utiles.funciones_utiles import show_data, load_product_names
 
 FILE = r'tp6_archivos\products.txt'
 
@@ -82,6 +82,7 @@ def show_products(products_list):
     try:
         print('\n===================')
         print('Lista de productos:')
+        # Esto muestra los productos uno por uno
         for product in products_list:
             show_data(product)
 
@@ -91,12 +92,18 @@ def show_products(products_list):
     finally:
         print('\n>> Volviendo al menú de opciones.')
 
-def add_product(products_list):
+def add_product(products_list : list):
     '''
     Esta función añade a la lista de diccionarios un producto.
     '''
 
+    # Lista de nombres de los productos cargados
+    name_list = load_product_names(products_list)
 
-    name = enter_word('Ingresa el nombre del producto: ', , True, '[X] Error: El producto ya fue añadido.')
+    # Esto crea un diccionario del producto.
+    name = enter_word('Ingresa el nombre del producto: ', name_list, True, '[X] Error: El producto ya fue añadido.')
     price = enter_number('Ingrese el precio del producto: ', 0, is_min = True)
     amount = enter_number('Ingrese el stock: ', 0, is_min = True, integer = True)
+    product_dictionary = {'nombre': name, 'precio': str(price), 'cantidad': str(amount)}
+
+    products_list.append(product_dictionary)
