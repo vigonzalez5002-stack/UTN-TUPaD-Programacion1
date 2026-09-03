@@ -12,6 +12,10 @@ def show_data(product):
 
     print(f'Producto: {product['nombre'].capitalize()} | Precio: ${product['precio']:.1f} | Cantidad: {product['cantidad']}')
 
+# =============================================================================================
+
+# =============================================================================================
+
 def load_product_names(products_list):
     '''
     Esta función crea una lista con los nombres de los productos cargados en la memoria.

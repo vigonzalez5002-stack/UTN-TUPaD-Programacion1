@@ -39,6 +39,10 @@ def enter_word(prompt = '', valid_words = [], invert_condition = False, invalid_
         else:
             return word
 
+# =============================================================================================
+
+# =============================================================================================
+
 def enter_number(prompt = '', inf = -infinite, sup = infinite, is_min = False, is_max = False, integer = False):
     '''
     Esta función es un bucle de validación de números que ingrese el usuario. Se romperá dicho bucle si

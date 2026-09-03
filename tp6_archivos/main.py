@@ -30,6 +30,7 @@ while True:
             case 3: # Agrega un producto
                 while True:
                     fp.add_product(products_list)
+                    
                     print('\n¿Deseas añadir otro producto?')
                     add_option = fv.enter_word('S para sí, N para no: ', ['s', 'n'])
                     if add_option == 'n':

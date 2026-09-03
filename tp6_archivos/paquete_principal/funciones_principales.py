@@ -32,7 +32,7 @@ def load_products():
 
             # Esto procesa cada linea de datos para añadirlo a la lista
             for line in lines[1:]: 
-                product_data = line.strip().split(',')
+                product_data = line.strip().split(',') # Esto separa la linea en una lista de datos
                 products_list.append({
                     'nombre': product_data[0], 
                     'precio': float(product_data[1]), 
@@ -47,19 +47,22 @@ def load_products():
         with open(FILE, 'w') as file:
             file.write('nombre,precio,cantidad\n')
 
-            # Esto añade 3 productos al archivo.
-            products_added = [] # Lista para evitar que ingrese el mismo producto.
+            # Esto añade 3 productos al archivo
             for i in range(1, 4):
                 print(f'\n> Ingresando el producto Nº{i}...')
-                name = enter_word('\nIngresa el nombre del producto: ', products_added, True, '[X] Error: El producto ya fue añadido.')
+
+                # Ingreso de datos del producto
+                name = enter_word('\nIngresa el nombre del producto: ', load_product_names(products_list), True, '[X] Error: El producto ya fue añadido.')
                 price = enter_number('\nIngrese el precio del producto: ', 0, is_min = True)
                 amount = enter_number('\nIngrese el stock: ', 0, is_min = True, integer = True)
+
+                # Carga de datos al archivo y a la lista de diccionarios
                 file.write(f'{name},{price},{amount}\n')
-                products_added.append(name)
                 products_list.append({
                     'nombre': name, 
                     'precio': price, 
-                    'cantidad': amount})
+                    'cantidad': amount
+                    })
 
         print('\n[✓] Archivo creado exitosamente.')
         print('\n[✓] Productos cargados correctamente.')
@@ -89,6 +92,7 @@ def show_products(products_list):
     try:
         print('\n===================')
         print('Lista de productos:')
+
         # Esto muestra los productos uno por uno
         for product in products_list:
             show_data(product)
@@ -111,13 +115,18 @@ def add_product(products_list : list):
     print('\n===================================')
     print('Añadiendo un producto a la lista...')
 
-    # Esto crea un diccionario del producto.
+    # Esto crea un diccionario del producto
     name = enter_word('\nIngresa el nombre del producto: ', load_product_names(products_list), True, '[X] Error: El producto ya fue añadido.')
     price = enter_number('\nIngrese el precio del producto: ', 0, is_min = True)
     amount = enter_number('\nIngrese el stock: ', 0, is_min = True, integer = True)
-    product_dictionary = {'nombre': name, 'precio': price, 'cantidad': amount}
 
-    products_list.append(product_dictionary)
+    # Esto añade el producto a la list
+    products_list.append({
+        'nombre': name,
+        'precio': price,
+        'cantidad': amount
+        })
+    
     print('[✓] Se añadió el producto exitosamente')
 
 # =============================================================================================
@@ -163,10 +172,10 @@ def save_products(product_list):
     try:
         with open(FILE, 'w') as file:
             file.write('nombre,precio,cantidad\n')
-            lines = []
+
+            # Esto escribe los datos del producto en una linea en el archivo
             for product in product_list:
-                lines.append(f'{product['nombre']},{product['precio']},{product['cantidad']}\n')
-            file.writelines(lines)
+                file.write(f'{product['nombre']},{product['precio']},{product['cantidad']}\n')
 
     except TypeError:
         print('[X] Error: No se han cargado los productos a la memoria.')
