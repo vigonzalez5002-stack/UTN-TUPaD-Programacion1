@@ -7,6 +7,10 @@ from paquete_utiles.funciones_utiles import show_data, load_product_names
 
 FILE = r'tp6_archivos\products.txt'
 
+# =============================================================================================
+
+# =============================================================================================
+
 def load_products():
     '''
     Esta función carga los productos del archivo products.txt a una lista de
@@ -73,6 +77,10 @@ def load_products():
     finally:
         print('\n>> Volviendo al menú de opciones.')
 
+# =============================================================================================
+
+# =============================================================================================
+
 def show_products(products_list):
     '''
     Esta función imprime en la terminal los productos cargados 
@@ -92,6 +100,10 @@ def show_products(products_list):
     finally:
         print('\n>> Volviendo al menú de opciones.')
 
+# =============================================================================================
+
+# =============================================================================================
+
 def add_product(products_list : list):
     '''
     Esta función añade a la lista de diccionarios un producto.
@@ -110,6 +122,10 @@ def add_product(products_list : list):
     print('[✓] Se añadió el producto exitosamente') 
     print('\n>> Volviendo al menú de opciones.')
 
+# =============================================================================================
+
+# =============================================================================================
+
 def find_product(products_list : list):
     '''
     Esta función busca un producto en la list de diccionarios. Si lo encuentra
@@ -127,4 +143,32 @@ def find_product(products_list : list):
     else:
         index_name = load_product_names(products_list).index(name)
         show_data(products_list[index_name])
+        print('\n>> Volviendo al menú de opciones.')
+
+# =============================================================================================
+
+# =============================================================================================
+
+def save_products(product_list):
+    '''
+    Esta función guarda los productos en el archivo productos.txt.
+    '''
+
+    try:
+        with open(FILE, 'w') as file:
+            lines = []
+            for product in product_list:
+                lines.append(f'{product['nombre']},{product['precio']},{product['cantidad']}\n')
+            file.writelines(lines)
+
+    except FileNotFoundError:
+        print('[X] Error: El archivo no existe.')
+
+    except TypeError:
+        print('[X] Error: No se han cargado los productos a la memoria.')
+
+    else:
+        print('[✓] Se guardaron los datos correctamente.')
+
+    finally:
         print('\n>> Volviendo al menú de opciones.')
