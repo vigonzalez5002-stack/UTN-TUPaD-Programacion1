@@ -119,8 +119,7 @@ def add_product(products_list : list):
     product_dictionary = {'nombre': name, 'precio': str(price), 'cantidad': str(amount)}
 
     products_list.append(product_dictionary)
-    print('[✓] Se añadió el producto exitosamente') 
-    print('\n>> Volviendo al menú de opciones.')
+    print('[✓] Se añadió el producto exitosamente')
 
 # =============================================================================================
 
