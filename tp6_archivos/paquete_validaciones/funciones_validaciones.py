@@ -30,7 +30,7 @@ def enter_word(prompt = '', valid_words = [], invert_condition = False, invalid_
             words_condition = valid_words != [] and word in valid_words
             prompt_error = invalid_prompt
 
-        if not word.isdigit(): # Validación de palabra de carácteres alfabéticos
+        if not word.isalpha(): # Validación de palabra de carácteres alfabéticos
             print('[X] Error: Carácter inválido. Solo se admiten carácteres alfabéticos.')
 
         elif words_condition:
@@ -53,10 +53,19 @@ def enter_number(prompt = '', inf = -infinite, sup = infinite, is_min = False, i
 
     while True:
         try:
-            number = float(input(prompt).strip())
+            number = input(prompt).strip()
             # Esto convierte el número a entero
             if integer:
-                number = int(number)
+
+                if len(str(number).split('.')) != 1: # Esto fuerza la validación a un entero
+                    print('[X] Error: Se debe ingresar un número entero.')
+                    continue
+
+                else:
+                    number = int(number)
+            
+            else:
+                number = float(number)
 
             # Condiciones del intervalo válido
             inf_condition = inf < number
@@ -70,12 +79,12 @@ def enter_number(prompt = '', inf = -infinite, sup = infinite, is_min = False, i
             if not (inf_condition and sup_condition):
                 print('[X] Error: Número fuera de rango.')
 
+            else:
+                return number
+
         except ValueError:
             print('[X] Error: Se debe ingresar un número.')
 
         except Exception as unexpected_exception:
             print('[X] Ocurrió un error inesperado.')
             print(f'> Error {type(unexpected_exception).__name__}: {unexpected_exception}')
-
-        else:
-            return number

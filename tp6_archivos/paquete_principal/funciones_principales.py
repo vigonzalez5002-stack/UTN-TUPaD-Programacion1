@@ -55,11 +55,11 @@ def load_products():
 
             # Esto añade 3 productos al archivo.
             products_added = [] # Lista para evitar que ingrese el mismo producto.
-            for i in range(3):
-                print(f'\nIngresando el producto Nº{i}')
-                name = enter_word('Ingresa el nombre del producto: ', products_added, True, '[X] Error: El producto ya fue añadido.')
-                price = enter_number('Ingrese el precio del producto: ', 0, is_min = True)
-                amount = enter_number('Ingrese el stock: ', 0, is_min = True, integer = True)
+            for i in range(1, 4):
+                print(f'\n> Ingresando el producto Nº{i}...')
+                name = enter_word('\nIngresa el nombre del producto: ', products_added, True, '[X] Error: El producto ya fue añadido.')
+                price = enter_number('\nIngrese el precio del producto: ', 0, is_min = True)
+                amount = enter_number('\nIngrese el stock: ', 0, is_min = True, integer = True)
                 file.write(f'{name},{price},{amount}\n')
                 products_added.append(name)
 
@@ -155,6 +155,7 @@ def save_products(product_list):
 
     try:
         with open(FILE, 'w') as file:
+            file.write('nombre,precio,cantidad\n')
             lines = []
             for product in product_list:
                 lines.append(f'{product['nombre']},{product['precio']},{product['cantidad']}\n')
