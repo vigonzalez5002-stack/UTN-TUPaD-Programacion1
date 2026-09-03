@@ -19,7 +19,7 @@ def load_products():
     print('Cargando productos en la memoria RAM...')
 
     # Lista de diccionarios de los productos
-    product_list = []
+    products_list = []
 
     try:
         with open(FILE, 'r') as file:
@@ -38,7 +38,7 @@ def load_products():
                     product_dictionary[columns[i]] = product_data[i]
 
                 # Esto carga el diccionario a la lista
-                product_list.append(product_dictionary)
+                products_list.append(product_dictionary)
     
 
     except FileNotFoundError:
@@ -68,12 +68,12 @@ def load_products():
 
     else:
         print('\n[✓] Productos cargados correctamente.')
-        return product_list
+        return products_list
 
     finally:
         print('\n>> Volviendo al menú de opciones.')
 
-def show_products(product_list):
+def show_products(products_list):
     '''
     Esta función imprime en la terminal los productos cargados 
     en una lista de diccionarios.
@@ -82,7 +82,7 @@ def show_products(product_list):
     try:
         print('\n===================')
         print('Lista de productos:')
-        for product in product_list:
+        for product in products_list:
             show_data(product)
 
     except TypeError:
@@ -91,3 +91,12 @@ def show_products(product_list):
     finally:
         print('\n>> Volviendo al menú de opciones.')
 
+def add_product(products_list):
+    '''
+    Esta función añade a la lista de diccionarios un producto.
+    '''
+
+
+    name = enter_word('Ingresa el nombre del producto: ', , True, '[X] Error: El producto ya fue añadido.')
+    price = enter_number('Ingrese el precio del producto: ', 0, is_min = True)
+    amount = enter_number('Ingrese el stock: ', 0, is_min = True, integer = True)
