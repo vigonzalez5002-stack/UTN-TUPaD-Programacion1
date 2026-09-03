@@ -3,6 +3,7 @@
 # de las actividades.
 # -------------------------------------------------------------------------
 from paquete_validaciones.funciones_validaciones import enter_number, enter_word
+from paquete_utiles.funciones_utiles import show_data
 
 FILE = r'tp6_archivos\products.txt'
 
@@ -14,8 +15,8 @@ def load_products():
     Si no existe el archivo, lo crea con 3 productos dados por el usuario.
     '''
 
-    print('==========================================')
-    print('\n Cargando productos en la memoria RAM...')
+    print('\n=======================================')
+    print('Cargando productos en la memoria RAM...')
 
     # Lista de diccionarios de los productos
     product_list = []
@@ -58,19 +59,19 @@ def load_products():
                 file.write(f'{name},{price},{amount}\n')
                 products_added.append(name)
 
-        print('[✓] Archivo creado exitosamente.')
-        print('> Puede cargar los productos a la memoria ahora.')
+        print('\n[✓] Archivo creado exitosamente.')
+        print('> Puede volver cargar los productos a la memoria.')
 
     except Exception as unexpected_exception:
         print('[X] Ocurrió un error inesperado.')
         print(f'> Error {type(unexpected_exception).__name__}: {unexpected_exception}')
 
     else:
-        print('[✓] Productos cargados correctamente.')
+        print('\n[✓] Productos cargados correctamente.')
         return product_list
 
     finally:
-        print('>> Volviendo al menú de opciones.')
+        print('\n>> Volviendo al menú de opciones.')
 
 def show_products(product_list):
     '''
@@ -78,5 +79,15 @@ def show_products(product_list):
     en una lista de diccionarios.
     '''
 
-    for product in product_list:
-        pass
+    try:
+        print('\n===================')
+        print('Lista de productos:')
+        for product in product_list:
+            show_data(product)
+
+    except TypeError:
+        print('[X] Error: No se han cargado los productos a la memoria.')
+
+    finally:
+        print('\n>> Volviendo al menú de opciones.')
+
