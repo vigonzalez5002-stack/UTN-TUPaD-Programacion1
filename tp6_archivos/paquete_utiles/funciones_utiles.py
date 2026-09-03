@@ -10,7 +10,7 @@ def show_data(product):
     Producto: <nombre> | Precio: $<precio> | Cantidad: <cantidad>
     '''
 
-    print(f'Producto: {product['nombre'].capitalize()} | Precio: ${float(product['precio']):.1f} | Cantidad: {product['cantidad']}')
+    print(f'Producto: {product['nombre'].capitalize()} | Precio: ${product['precio']:.1f} | Cantidad: {product['cantidad']}')
 
 def load_product_names(products_list):
     '''
