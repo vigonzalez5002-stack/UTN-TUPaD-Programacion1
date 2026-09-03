@@ -1,4 +1,0 @@
-nombre,precio,cantidad
-Gaseosa,1800,6
-Galletitas,3300,50
-Leche,2700,30
