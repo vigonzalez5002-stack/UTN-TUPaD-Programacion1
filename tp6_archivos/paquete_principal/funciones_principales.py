@@ -97,13 +97,34 @@ def add_product(products_list : list):
     Esta función añade a la lista de diccionarios un producto.
     '''
 
-    # Lista de nombres de los productos cargados
-    name_list = load_product_names(products_list)
+    print('\n==================================')
+    print('Añadiendo un producto a la lista...')
 
     # Esto crea un diccionario del producto.
-    name = enter_word('Ingresa el nombre del producto: ', name_list, True, '[X] Error: El producto ya fue añadido.')
+    name = enter_word('Ingresa el nombre del producto: ', load_product_names(products_list), True, '[X] Error: El producto ya fue añadido.')
     price = enter_number('Ingrese el precio del producto: ', 0, is_min = True)
     amount = enter_number('Ingrese el stock: ', 0, is_min = True, integer = True)
     product_dictionary = {'nombre': name, 'precio': str(price), 'cantidad': str(amount)}
 
     products_list.append(product_dictionary)
+    print('[✓] Se añadió el producto exitosamente') 
+    print('\n>> Volviendo al menú de opciones.')
+
+def find_product(products_list : list):
+    '''
+    Esta función busca un producto en la list de diccionarios. Si lo encuentra
+    lo mostrará con formato, si no lo encuentra mostrará un error.
+    '''
+
+    print('\n=======================')
+    print('Buscando un producto...')
+
+    name = enter_word('Ingresa el nombre del producto a buscar: ')
+
+    if name not in load_product_names(products_list):
+        print('[X] Error: El producto no se encuentra añadido.')
+
+    else:
+        index_name = load_product_names(products_list).index(name)
+        show_data(products_list[index_name])
+        print('\n>> Volviendo al menú de opciones.')
