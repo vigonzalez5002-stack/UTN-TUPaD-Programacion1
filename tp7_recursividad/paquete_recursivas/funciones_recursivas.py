@@ -111,7 +111,7 @@ def sum_digits(number):
         return number
 
     # Caso recursivo
-    return sum_digits(n // 10) + n % 10
+    return sum_digits(number // 10) + number % 10
 
 # -----------------------------------------------------------------------------------------------
 
