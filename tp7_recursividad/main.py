@@ -20,21 +20,23 @@ while True:
 8. Contar la cantidad de apariciones de un dígito en un número.
 9. Salir del programa
 ===============================================================''')
-    option = fv.enter_number('Opción: ', 1, 9, True, True, True)
+    option = fv.enter_number('> Opción: ', 1, 9, True, True, True)
 
     match option:
 
         # Actividad 1
         case 1:
-            print()
-            stop = fv.enter_number('Ingrese hasta que factorial calcular: ', 1, is_min = True, is_integer = True)
-            print('\n Lista de factoriales')
+            stop = fv.enter_number('\nIngrese hasta que factorial calcular: ', 1, is_min = True, is_integer = True)
+            print('\n>> Lista de factoriales:')
             for i in range(1, stop + 1):
-                print(f'Factorial de {i} es {fr.factorial(i)}')
+                print(f'{i}! = {fr.factorial(i)}')
 
         # Actividad 2
         case 2:
-            pass
+            stop = fv.enter_number('\nIndique hasta que valor evaluar la sucesión de Fibonacci: ', 0, is_min = True, is_integer = True)
+            print('\n>> Lista de la sucesión de Fibonacci:')
+            for i in range(stop + 1):
+                print(f'Fibonacci({i}) = {fr.fibonacci(i)}')
 
         # Actividad 3
         case 3:
