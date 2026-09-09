@@ -18,7 +18,7 @@ while True:
 6. Sumar dígitos de un número.
 7. Mostrar total de bloques para construir una pirámide.
 8. Contar la cantidad de apariciones de un dígito en un número.
-9. Salir del programa
+9. Salir del programa.
 ===============================================================''')
     option = fv.enter_number('> Opción: ', 1, 9, True, True, True)
 
@@ -40,7 +40,7 @@ while True:
 
         # Actividad 3
         case 3:
-            base = fv.enter_number('\nIngrese la base de la potencia: ', 0, is_min = True)
+            base = fv.enter_number('\nIngrese la base de la potencia: ', 0)
             exponent = fv.enter_number('\nIngrese el exponente: ')
             print(f'\n>> {base} elevado a {exponent} da {fr.exponential(base, exponent)}.')
 
