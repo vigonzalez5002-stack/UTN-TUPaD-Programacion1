@@ -101,14 +101,14 @@ def is_palindrome(palabra):
 # -----------------------------------------------------------------------------------------------
 
 # Actividad 6
-def sum_digits(n):
+def sum_digits(number):
     '''
     Recibe un número entero positivo y retorna la suma de sus dígitos.
     '''
 
     # Caso base
-    if n < 10:
-        return n
+    if number < 10:
+        return number
 
     # Caso recursivo
     return sum_digits(n // 10) + n % 10
@@ -131,5 +131,28 @@ def count_blocks(level):
     # Caso recursivo
     return level + count_blocks(level - 1)
 
+# -----------------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------------
+
+# Actividad 8
+def count_digits(number, digit):
+    '''
+    Función que recibe un número entero positivo y un dígito entre 0 y 9 y retorna cuantas
+    veces aparece el dígito dentro del número.
+    '''
+    # Contador
+    if number % 10 == digit:
+        count = 1
+    else:
+        count = 0
+            
+    # Caso base
+    if number < 10:
+        return count
+
+    # Caso recursivo
+    return count + count_digits(number // 10, digit)
+
 if __name__ == '__main__':
-    print(count_blocks(3))
+    print(count_digits(2, 2))
