@@ -150,6 +150,3 @@ def count_digit(number, digit):
 
     # Caso recursivo
     return count + count_digit(number // 10, digit)
-
-if __name__ == '__main__':
-    print(binary(4))
