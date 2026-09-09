@@ -51,7 +51,8 @@ while True:
 
         # Actividad 5
         case 5:
-            pass
+            word = fv.enter_word('Ingrese una palabra: ')
+            print(f'¿Es {word} palíndromo? {fr.is_palindrome(word)}')
 
         # Actividad 6
         case 6:
