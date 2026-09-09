@@ -66,8 +66,11 @@ while True:
 
         # Actividad 8
         case 8:
-            pass
+            number = fv.enter_number('\nIngrese un número entero positivo: ', 0, is_integer = True)
+            digit = fv.enter_number('\nIngrese el dígito para contar: ', 0, 9, True, True, True)
+            print(f'\n>> En {number}, el dígito {digit} aparece {fr.count_digit(number, digit)} veces.')
 
         # Salir del programa
         case 9:
-            pass
+            print('Saliendo del programa...')
+            break
