@@ -101,3 +101,24 @@ def es_palindromo(palabra):
 # -----------------------------------------------------------------------------------------------
 
 # Actividad 6
+def sumar_digitos(n):
+    '''
+    Recibe un número entero positivo y retorna la suma de sus dígitos.
+    '''
+
+    # Caso base
+    if n < 10:
+        return n
+
+    # Caso recursivo
+    return sumar_digitos(n // 10) + n % 10
+
+# -----------------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------------
+
+# Actividad 7
+
+
+if __name__ == '__main__':
+    pass
