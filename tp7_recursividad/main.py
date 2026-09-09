@@ -46,18 +46,19 @@ while True:
 
         # Actividad 4
         case 4:
-            number = fv.enter_number('\nIngresa un número entero positivo: ', 0, is_min = True, is_integer = True)
+            number = fv.enter_number('\nIngrese un número entero positivo: ', 0, is_integer = True)
             print(f'\n>> El número {number} en binario es {fr.binary(number)}')
 
         # Actividad 5
         case 5:
-            word = fv.enter_word('Ingrese una palabra: ')
-            print(f'¿Es {word} palíndromo? {fr.is_palindrome(word)}')
+            word = fv.enter_word('\nIngrese una palabra: ')
+            print(f'\n>> ¿Es {word} palíndromo? {fr.is_palindrome(word)}')
 
         # Actividad 6
         case 6:
-            pass
-
+            number = fv.enter_number('\nIngrese un número entero positivo: ', 0, is_integer = True)
+            print(f'\n>> La suma de los dígitos de {number} es {fr.sum_digits(number)}')
+            
         # Actividad 7
         case 7:
             pass
