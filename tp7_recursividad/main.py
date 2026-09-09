@@ -42,11 +42,12 @@ while True:
         case 3:
             base = fv.enter_number('\nIngrese la base de la potencia: ', 0, is_min = True)
             exponent = fv.enter_number('\nIngrese el exponente: ')
-            print(f'>> {base} elevado a {exponent} da {fr.exponential(base, exponent)}.')
+            print(f'\n>> {base} elevado a {exponent} da {fr.exponential(base, exponent)}.')
 
         # Actividad 4
         case 4:
-            pass
+            number = fv.enter_number('\nIngresa un número entero positivo: ', 0, is_min = True, is_integer = True)
+            print(f'\n>> El número {number} en binario es {fr.binary(number)}')
 
         # Actividad 5
         case 5:
