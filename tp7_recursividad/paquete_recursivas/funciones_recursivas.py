@@ -80,7 +80,7 @@ def binary(number):
 # -----------------------------------------------------------------------------------------------
 
 # Actividad 5
-def es_palindromo(palabra):
+def is_palindrome(palabra):
     '''
     Recibe una cadena de texto sin espacios ni tildes y devuelve True si es un palíndromo, False
     si no lo es.
@@ -94,14 +94,14 @@ def es_palindromo(palabra):
         return False
 
     # Caso recursivo
-    return es_palindromo(palabra[1:-1])
+    return is_palindrome(palabra[1:-1])
 
 # -----------------------------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------------------------
 
 # Actividad 6
-def sumar_digitos(n):
+def sum_digits(n):
     '''
     Recibe un número entero positivo y retorna la suma de sus dígitos.
     '''
@@ -111,14 +111,25 @@ def sumar_digitos(n):
         return n
 
     # Caso recursivo
-    return sumar_digitos(n // 10) + n % 10
+    return sum_digits(n // 10) + n % 10
 
 # -----------------------------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------------------------
 
 # Actividad 7
+def count_blocks(level):
+    '''
+    Esta función recibe la cantidad de niveles que tiene una pirámide y retorna
+    el total de bloques que se necesita para construirla.
+    '''
 
+    # Caso base
+    if level == 0:
+        return 0
+
+    # Caso recursivo
+    return level + count_blocks(level - 1)
 
 if __name__ == '__main__':
-    pass
+    print(count_blocks(3))
