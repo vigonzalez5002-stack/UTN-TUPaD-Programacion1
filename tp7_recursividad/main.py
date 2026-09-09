@@ -40,7 +40,9 @@ while True:
 
         # Actividad 3
         case 3:
-            pass
+            base = fv.enter_number('\nIngrese la base de la potencia: ', 0, is_min = True)
+            exponent = fv.enter_number('\nIngrese el exponente: ')
+            print(f'>> {base} elevado a {exponent} da {fr.exponential(base, exponent)}.')
 
         # Actividad 4
         case 4:
