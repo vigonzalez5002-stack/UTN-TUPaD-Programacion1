@@ -10,8 +10,11 @@ def factorial(number):
     Esta función calcula el factorial de un número de forma recursiva.
     '''
 
+    # Caso base
     if number == 0:
         return 1
+
+    # Caso recursivo
     return number * factorial(number - 1)
 
 # ----------------------------------------------------------------------------------------------
