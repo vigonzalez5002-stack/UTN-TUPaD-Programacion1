@@ -49,7 +49,7 @@ def exponential(base, exponent):
 
     # Caso recursivo para exponente negativo
     elif exponent < 0:
-        return base * exponential(base, -exponent + 1)
+        return 1/ exponential(base, -exponent)
 
     # Caso recursivo para exponente positivo o cero
     return base * exponential(base, exponent - 1)
@@ -66,11 +66,8 @@ def binary(number):
     '''
 
     # Casos base
-    if number == 0:
-        return '0'
-
-    elif number == 1:
-        return '1'
+    if number < 2:
+        return str(number)
 
     # Caso recursivo
     return binary(number // 2) + str(number % 2)
@@ -136,7 +133,7 @@ def count_blocks(level):
 # -----------------------------------------------------------------------------------------------
 
 # Actividad 8
-def count_digits(number, digit):
+def count_digit(number, digit):
     '''
     Función que recibe un número entero positivo y un dígito entre 0 y 9 y retorna cuantas
     veces aparece el dígito dentro del número.
@@ -152,7 +149,7 @@ def count_digits(number, digit):
         return count
 
     # Caso recursivo
-    return count + count_digits(number // 10, digit)
+    return count + count_digit(number // 10, digit)
 
 if __name__ == '__main__':
-    print(count_digits(2, 2))
+    print(binary(4))
