@@ -58,10 +58,11 @@ while True:
         case 6:
             number = fv.enter_number('\nIngrese un número entero positivo: ', 0, is_integer = True)
             print(f'\n>> La suma de los dígitos de {number} es {fr.sum_digits(number)}')
-            
+
         # Actividad 7
         case 7:
-            pass
+            level = fv.enter_number('\nIngrese cuantos niveles tiene la pirámide: ', 0, is_integer = True)
+            print(f'\n >>Para una pirámide de {level} niveles, se necesitan {fr.count_blocks(level)} bloques.')
 
         # Actividad 8
         case 8:

@@ -117,8 +117,9 @@ def sum_digits(number):
 # Actividad 7
 def count_blocks(level):
     '''
-    Esta función recibe la cantidad de niveles que tiene una pirámide y retorna
-    el total de bloques que se necesita para construirla.
+    Esta función recibe la cantidad de niveles(Equivalente a la cantidad de bloques en el nivel 
+    más bajo) que tiene una pirámide y retorna el total de bloques que se necesita para 
+    construirla.
     '''
 
     # Caso base
