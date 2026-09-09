@@ -80,3 +80,24 @@ def binary(number):
 # -----------------------------------------------------------------------------------------------
 
 # Actividad 5
+def es_palindromo(palabra):
+    '''
+    Recibe una cadena de texto sin espacios ni tildes y devuelve True si es un palíndromo, False
+    si no lo es.
+    '''
+
+    # Casos base
+    if len(palabra) < 2:
+        return True
+
+    elif palabra[0] != palabra[-1]:
+        return False
+
+    # Caso recursivo
+    return es_palindromo(palabra[1:-1])
+
+# -----------------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------------
+
+# Actividad 6
